@@ -2,6 +2,8 @@
 
 CueClub is a full-stack smart booking and management system for cue sports lounges. It handles customer reservations, real-time table availability, digital session timing, POS billing, walk-in management, no-show penalties, and customer play history.
 
+***Made during a vibe coding hackathon***
+
 ---
 
 ## 🔐 Staff Operations Login & Demo Credentials
