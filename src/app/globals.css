@@ -1,44 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: #090e0c;
-  --foreground: #f3f4f6;
-  --baize-green: #0a3d24;
-  --baize-light: #0e5a35;
-  --gold-accent: #d4af37;
-  --gold-hover: #b89628;
+  --background: #0B0E0C;
+  --foreground: #F4F0E6;
+  --surface: #19221B;
+  --forest: #111A14;
+  --signature-emerald: #0C7049;
+  --vibrant-emerald: #30BD83;
+  --champagne-gold: #D7BC83;
+  --warm-ivory: #F4F0E6;
+  --secondary-text: #A7AEA6;
+  --fine-border: #303A31;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  color: #F4F0E6;
+  background-color: #0B0E0C;
+  font-family: 'Plus Jakarta Sans', var(--font-geist-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   min-height: 100vh;
+  letter-spacing: -0.01em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-@keyframes pulse-subtle {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.7; }
+/* Typography styles */
+.font-display {
+  font-family: 'Cinzel', Georgia, serif;
+  letter-spacing: 0.04em;
 }
 
-.animate-pulse-subtle {
-  animation: pulse-subtle 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+.font-editorial {
+  font-family: 'Cormorant Garamond', 'Cinzel', Georgia, serif;
+  letter-spacing: -0.01em;
+}
+
+/* Tabular numerals for monetary figures, schedules & timers */
+.tnum, .tabular-nums {
+  font-variant-numeric: tabular-nums;
+  -webkit-font-feature-settings: "tnum" 1;
+  font-feature-settings: "tnum" 1;
+}
+
+/* Luxury metallic gradient text */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #FDF9EE 0%, #D7BC83 50%, #B49658 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-emerald-gradient {
+  background: linear-gradient(135deg, #A8F5D0 0%, #30BD83 50%, #0C7049 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Hairline borders & refined panels */
+.border-fine {
+  border-color: #303A31;
+}
+
+.border-gold-subtle {
+  border-color: rgba(215, 188, 131, 0.22);
+}
+
+.border-emerald-subtle {
+  border-color: rgba(48, 189, 131, 0.2);
+}
+
+.hairline-separator {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(215, 188, 131, 0.35) 50%, transparent 100%);
+}
+
+.hairline-border-b {
+  border-bottom: 1px solid #303A31;
+}
+
+/* Editorial Card Architecture - restrained, rectangular luxury without excessive bubble rounding */
+.card-editorial {
+  background: #19221B;
+  border: 1px solid #303A31;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-editorial:hover {
+  border-color: rgba(215, 188, 131, 0.35);
+  box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.7), 0 0 15px rgba(215, 188, 131, 0.06);
+}
+
+/* Distinct status styling conforming to creative direction */
+.status-badge-available {
+  background: rgba(12, 112, 73, 0.25);
+  color: #30BD83;
+  border: 1px solid rgba(48, 189, 131, 0.4);
+}
+
+.status-badge-reserved {
+  background: rgba(26, 54, 74, 0.4);
+  color: #6EABCE;
+  border: 1px solid rgba(77, 136, 171, 0.4);
+}
+
+.status-badge-inplay {
+  background: rgba(61, 41, 19, 0.45);
+  color: #E2AB59;
+  border: 1px solid rgba(217, 155, 67, 0.4);
+}
+
+.status-badge-maintenance {
+  background: rgba(35, 38, 36, 0.5);
+  color: #9AA39C;
+  border: 1px solid rgba(107, 117, 110, 0.4);
+}
+
+/* Table Felt Textures (CSS radial simulation) */
+.felt-snooker {
+  background: radial-gradient(circle at 50% 30%, #0c6140 0%, #084c32 50%, #053322 100%);
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.7);
+}
+
+.felt-pool {
+  background: radial-gradient(circle at 50% 30%, #0e5b7a 0%, #09435b 50%, #052c3c 100%);
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.7);
+}
+
+/* Focus indicators */
+*:focus-visible {
+  outline: 2px solid #D7BC83;
+  outline-offset: 2px;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 /* Custom scrollbars */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0d1411;
+  background: #0B0E0C;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1e3328;
-  border-radius: 4px;
+  background: #232D25;
+  border-radius: 9999px;
+  border: 1px solid #111A14;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #2b493a;
+  background: #0C7049;
 }
